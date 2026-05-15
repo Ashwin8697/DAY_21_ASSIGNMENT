@@ -1,0 +1,35 @@
+﻿@model List<BookStoreADO.Models.Book>
+
+<h2>Books List</h2>
+
+<a asp-action="Create" class="btn btn-primary">
+    Add New Book
+</a>
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Id</td>
+            <td>@book.Title</td>
+            <td>@book.Author</td>
+            <td>@book.Price</td>
+
+            <td>
+                <a asp-action="Delete"
+                   asp-route-id="@book.Id"
+                   class="btn btn-danger">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    }
+</table>
